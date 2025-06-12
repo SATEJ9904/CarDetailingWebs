@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Button, Container, Grid, Paper, useTheme, Chip, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../../components/ServiceCard/Service';
 import AnimatedSection from '../../components/AnimationSection/Animation';

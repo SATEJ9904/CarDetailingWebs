@@ -161,7 +161,6 @@ const Service = ({ service }) => {
         <Box 
           component={Link} 
           to={service.link}
-          component={motion.div}
           whileHover={{ 
             x: 5,
             color: '#2196f3'

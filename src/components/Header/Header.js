@@ -33,7 +33,6 @@ function HideOnScroll({ children }) {
 }
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const mobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -42,7 +41,6 @@ const Header = () => {
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
     setMobileMoreAnchorEl(null);
   };
 
