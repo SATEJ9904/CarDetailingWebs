@@ -1,12 +1,11 @@
 import React from 'react';
-import { Box, Typography, Button, Container, Grid, Paper, useTheme, Chip, Divider, Stack } from '@mui/material';
+import { Box, Typography, Button, Container, Grid, Paper, useTheme, Chip, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ServiceCard from '../../components/ServiceCard/Service';
 import AnimatedSection from '../../components/AnimationSection/Animation';
 import HomeBG from '../../assets/images/HomeBG.jpg';
 import StarIcon from '@mui/icons-material/Star';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import LocalCarWashIcon from '@mui/icons-material/LocalCarWash';
 import ShieldIcon from '@mui/icons-material/Shield';
 import ScienceIcon from '@mui/icons-material/Science';
@@ -125,7 +124,6 @@ const Home = () => {
                     fontWeight: 600,
                     fontSize: '1.1rem'
                   }}
-                  component={motion.div}
                   whileHover={{
                     scale: 1.05,
                     boxShadow: `0 0 20px ${theme.palette.secondary.light}`
@@ -459,7 +457,6 @@ const Home = () => {
                   fontWeight: 600,
                   fontSize: '1.1rem'
                 }}
-                component={motion.div}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: '0 0 20px rgba(255,255,255,0.4)'

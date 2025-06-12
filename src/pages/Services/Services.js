@@ -161,7 +161,6 @@ const Services = () => {
                       sx={{ 
                         position: 'absolute',
                         top: 16,
-                        right: 16,
                         zIndex: 1,
                         fontWeight: 600
                       }}

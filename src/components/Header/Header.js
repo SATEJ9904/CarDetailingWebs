@@ -9,7 +9,6 @@ import {
   IconButton,
   Menu,
   MenuItem,
-  Divider,
   useScrollTrigger,
   Slide,
   Avatar,
@@ -19,12 +18,6 @@ import {
   LocalCarWash, 
   Menu as MenuIcon, 
   Phone, 
-  Email, 
-  LocationOn, 
-  Facebook, 
-  Instagram, 
-  Twitter,
-  ShoppingCart
 } from '@mui/icons-material';
 import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -42,12 +35,7 @@ function HideOnScroll({ children }) {
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
   const mobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClick = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
