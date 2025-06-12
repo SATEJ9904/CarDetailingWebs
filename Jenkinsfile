@@ -106,7 +106,7 @@ server {
             echo 'Access your application at: http://192.168.1.50/cardetailing'
         }
         failure {
-            echo ' Car detailing deployment failed'
+            echo ' Car detailing deployment failed!'
         }
     }
 }
