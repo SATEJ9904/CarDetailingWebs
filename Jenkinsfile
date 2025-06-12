@@ -62,26 +62,27 @@ pipeline {
             steps {
                 echo 'Updating Nginx configuration...'
                 script {
-                    def nginxConfig = """
-                    server {
-                        listen 80;
-                        server_name 192.168.1.50;
+                  def nginxConfig = '''
+server {
+    listen 80;
+    server_name 192.168.1.50;
 
-                        # FitnessFreak application
-                        location / {
-                            root /var/www/html/fitnessfreak;
-                            index index.html;
-                            try_files \$uri \$uri/ /index.html;
-                        }
+    # FitnessFreak application
+    location / {
+        root /var/www/html/fitnessfreak;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
 
-                        # Car Detailing application
-                        location /cardetailing {
-                            alias /var/www/html;
-                            index index.html;
-                            try_files \$uri \$uri/ /cardetailing/index.html;
-                        }
-                    }
-                    """
+    # Car Detailing application
+    location /cardetailing {
+        alias /var/www/html;
+        index index.html;
+        try_files $uri $uri/ /cardetailing/index.html;
+    }
+}
+'''
+
 
                     // Update Nginx configuration
                     sh """
