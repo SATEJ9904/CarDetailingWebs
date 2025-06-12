@@ -10,7 +10,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning car detailing repository...'
-                git branch: 'main', credentialsId: 'Jenkins_Key', url: 'git@github.com:yourusername/cardetailing.git'
+                git branch: 'main', credentialsId: 'Jenkins_Key', url: 'git@github.com:SATEJ9904/CarDetailingWebs.git'
             }
         }
 
@@ -76,7 +76,7 @@ pipeline {
 
                         # Car Detailing application
                         location /cardetailing {
-                            alias ${DEPLOY_DIR};
+                            alias /var/www/html;
                             index index.html;
                             try_files \$uri \$uri/ /cardetailing/index.html;
                         }
