@@ -62,8 +62,7 @@ pipeline {
             steps {
                 echo 'Updating Nginx configuration...'
                 script {
-                  def nginxConfig = '''
-server {
+                    def nginxConfig = '''server {
     listen 80;
     server_name 192.168.1.50;
 
@@ -71,26 +70,24 @@ server {
     location / {
         root /var/www/html/fitnessfreak;
         index index.html;
-        try_files $uri $uri/ /index.html;
+        try_files \\$uri \\$uri/ /index.html;
     }
 
     # Car Detailing application
     location /cardetailing {
-        alias /var/www/html;
+        alias /var/www/html/cardetailing;
         index index.html;
-        try_files $uri $uri/ /cardetailing/index.html;
+        try_files \\$uri \\$uri/ /cardetailing/index.html;
     }
-}
-'''
-
+}'''
 
                     // Update Nginx configuration
                     sh """
                         # Backup existing config
-                        sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup_$(date +%Y%m%d%H%M%S) || true
+                        sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup_\$(date +%Y%m%d%H%M%S) || true
                         
                         # Update the configuration
-                        echo '${nginxConfig}' | sudo tee /etc/nginx/sites-available/default > /dev/null
+                        echo '${nginxConfig.replaceAll("'", "'\\\\''")}' | sudo tee /etc/nginx/sites-available/default > /dev/null
                         
                         # Test and reload Nginx
                         sudo nginx -t && sudo systemctl reload nginx
@@ -102,11 +99,11 @@ server {
 
     post {
         success {
-            echo ' Car detailing deployment completed successfully!'
+            echo '✅ Car detailing deployment completed successfully!'
             echo 'Access your application at: http://192.168.1.50/cardetailing'
         }
         failure {
-            echo ' Car detailing deployment failed!'
+            echo '❌ Car detailing deployment failed!'
         }
     }
 }
